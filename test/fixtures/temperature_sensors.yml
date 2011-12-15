@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  address: MyString
+  temperature: MyString
+  time: 2011-12-13 14:28:13
+
+two:
+  address: MyString
+  temperature: MyString
+  time: 2011-12-13 14:28:13

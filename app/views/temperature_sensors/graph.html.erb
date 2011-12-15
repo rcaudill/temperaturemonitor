@@ -1,0 +1,96 @@
+<meta http-equiv="refresh" content="120" />
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script type="text/javascript" src="../highstock-1.0.2/js/highstock.js"></script>
+<script type="text/javascript" src="../highstock-1.0.2/js/modules/exporting.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+  
+  // Create the chart
+  window.chart = new Highcharts.StockChart({
+  chart : {
+  renderTo : 'container'
+  },
+  
+  rangeSelector : {
+  buttons: [{
+  type:'minute',
+  count: 60,
+  text:'1h'
+  }, {
+  type:'minute',
+  count: 720,
+  text:'12h'
+  }, {
+  type:'minute',
+  count: 1440,
+  text:'1d'
+  }, {
+  type:'minute',
+  count: 10080,
+  text:'7d'
+  }, {
+  type: 'month',
+  count: 1,
+  text: '1m'
+  }, {
+  type: 'month',
+  count: 3,
+  text: '3m'
+  }, {
+  type: 'month',
+  count: 6,
+  text: '6m'
+  }, {
+  type: 'ytd',
+  text: 'YTD'
+  }, {
+  type: 'year',
+  count: 1,
+  text: '1y'
+  }, {
+  type: 'all',
+  text: 'All'
+  }],
+  selected : 2
+  },
+ 
+  title : {
+  text : 'Rob\'s Temperature Graph'
+  },
+  
+  xAxis : {
+  //maxZoom : 14 * 24 * 3600000 // fourteen days
+  maxZoom : 1 * 3600000
+  },
+
+  yAxis : {
+  min: 20,
+  max: 90,
+  title : {
+  text : 'Temperature (F)'
+  }
+  },
+  
+  series : [{
+  name : 'Garage Sensor 1',
+  data : <%= @sensor1 %>,
+    tooltip: {
+      yDecimals: 1
+    }
+  },{
+  name : 'Garage Sensor 2',
+  data : <%= @sensor2 %>,
+    tooltip: {
+      yDecimals: 1
+    }
+  }
+  ]
+
+  });  
+  });  
+</script>
+
+<div id="container" style="height: 500px; min-width: 500px"></div>
+

@@ -1,0 +1,27 @@
+<h1>Listing Last 10 Sensor Readings</h1>
+
+<table border="1">
+  <tr>
+    <th>Address</th>
+    <th>Temperature</th>
+    <th>Time</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @temperature_sensors.each do |temperature_sensor| %>
+  <tr>
+    <td><%= temperature_sensor.address %></td>
+    <td><%= temperature_sensor.temperature %></td>
+    <td><%= temperature_sensor.time %></td>
+    <td><%= link_to 'Show', temperature_sensor %></td>
+    <td><%= link_to 'Edit', edit_temperature_sensor_path(temperature_sensor) %></td>
+    <td><%= link_to 'Destroy', temperature_sensor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Temperature Sensor Measurement', new_temperature_sensor_path %>
